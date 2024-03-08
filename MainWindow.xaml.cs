@@ -52,11 +52,11 @@ namespace AudioPlayerWPF
                     .Concat(Directory.GetFiles(selectedFolder, "*.wav", SearchOption.AllDirectories))
                     .ToArray();
 
-                audioFiles = newAudioFiles.ToList(); // Update the audioFiles list with the new files
+                audioFiles = newAudioFiles.ToList(); 
 
                 if (audioFiles.Count > 0)
                 {
-                    PlayAudio(0); // Play the first audio file in the list
+                    PlayAudio(0);
                 }
             }
         }
@@ -75,7 +75,6 @@ namespace AudioPlayerWPF
 
         private void ShuffleAudioFiles()
         {
-            // Shuffle the audioFiles list
             int n = audioFiles.Count;
             while (n > 1)
             {
@@ -85,7 +84,6 @@ namespace AudioPlayerWPF
                 audioFiles[k] = audioFiles[n];
                 audioFiles[n] = value;
             }
-            // Play the first audio file in the shuffled list
             PlayAudio(0);
         }
 
@@ -93,15 +91,15 @@ namespace AudioPlayerWPF
         {
             if (isRepeatEnabled)
             {
-                PlayAudio(currentIndex); // Repeat the current track
+                PlayAudio(currentIndex);
             }
             else if (isShuffleEnabled)
             {
-                ShuffleAudioFiles(); // Play a random track
+                ShuffleAudioFiles();
             }
             else
             {
-                PlayAudio((currentIndex + 1) % audioFiles.Count); // Play the next track
+                PlayAudio((currentIndex + 1) % audioFiles.Count);
             }
         }
 
